@@ -1,0 +1,53 @@
+fluidPage(  
+  tags$head(tags$style(HTML(".shiny-text-output {background-color:#fff;}"))),
+  img(src='CI_Logo.png', align='right', style="width:150px;height:50px;"),
+  titlePanel("El Niño and Climate Change in CI Target Areas",),
+  fluidRow(
+           plotOutput('ENSOtime', height=200, click = 'yearmonth')
+  ),
+  p('By some measures, we are in the middle of the worst El Niño on record.  Combined with Climate Change, 
+      El Niño is leading to massive changes in precipitation and plant greeness, especially in the tropics.'),
+  p('Click on a tab below to see how CI is responding to these challenges in our target areas of the world.
+    Then, click on the timeline to see how El Niño has historically affected precipitation and greenness in CI
+    target regions.'),
+  sliderInput('YR', 'Select a Month', min=ymd('1950-01-01'), max=ymd('2015-12-31'), value=ymd('1950-01-01'), 
+              timeFormat='%F', animate=T),
+  tabsetPanel(
+    tabPanel("Greater Mekong",
+             column(4,
+                    hr(),
+                    h4('Rainfall deviation during typical El Niño year.  White areas indicate less rain, green areas indicate more.'),
+                    plotOutput("MekongStD")),
+             column(4,
+                    hr(),
+                    h4('Total precipitation (mm) in selected month and year.'),
+                    plotOutput("MekongPrecip")), 
+            column(4,
+                   hr(),
+                   h4('#NDVI data here'))),
+    tabPanel("Amazon Basin", 
+             column(4,
+                    hr(),
+                    h4('Rainfall deviation during typical El Niño year.  White areas indicate less rain, green areas indicate more.'),
+                    plotOutput("AmazonStD")), 
+             column(4,
+                    hr(),
+                    h4('Total precipitation (mm) in selected month and year.'),
+                    plotOutput("AmazonPrecip")), 
+             column(4,
+                    hr(),
+                    h4('#NDVI data here'))),
+    tabPanel("Africa", 
+             column(4,
+                    hr(),
+                    h4('Rainfall deviation during typical El Niño year.  White areas indicate less rain, green areas indicate more.'),
+                    plotOutput("AfricaStD")), 
+             column(4,
+                    hr(),
+                    h4('Total precipitation (mm) in selected month and year.'),
+                    plotOutput("AfricaPrecip")), 
+             column(4,
+                    hr(),
+                    h4('#NDVI data here')))
+  )
+)
