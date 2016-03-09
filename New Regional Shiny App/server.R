@@ -92,9 +92,11 @@ shinyServer(function(input, output) {
   
   output$AmazonPrecip <- renderPlot({
     if(is.null(clickpoint)){
-      plot(precip[[1]], xlim=Amzxlim, ylim=Amzylim, axes=F)}
+      plot(precip[[1]], xlim=Amzxlim, ylim=Amzylim, axes=F)
+      plot(worldborders, add=T)}
     else{
-      plot(precip[[cleansub(clickpoint$x)]], xlim=Amzxlim, ylim=Amzylim, axes=F)}
+      plot(precip[[cleansub(clickpoint$x)]], xlim=Amzxlim, ylim=Amzylim, axes=F)
+      plot(worldborders, add=T)}
   })
   
   output$AfricaStD <- renderPlot({
@@ -104,9 +106,11 @@ shinyServer(function(input, output) {
   
   output$AfricaPrecip <- renderPlot({
     if(is.null(clickpoint)){
-      plot(precip[[1]], xlim=Afrxlim, ylim=Afrylim, axes=F)}
+      plot(precip[[1]], xlim=Afrxlim, ylim=Afrylim, axes=F)
+      plot(worldborders, add=T)}
     else{
-      plot(precip[[cleansub(clickpoint$x)]], xlim=Afrxlim, ylim=Afrylim, axes=F)}
+      plot(precip[[cleansub(clickpoint$x)]], xlim=Afrxlim, ylim=Afrylim, axes=F)
+      plot(worldborders, add=T)}
   })
   
   output$MekongStD <- renderPlot({
@@ -116,9 +120,11 @@ shinyServer(function(input, output) {
   
   output$MekongPrecip <- renderPlot({
     if(is.null(clickpoint)){
-      plot(precip[[1]], xlim=Mekxlim, ylim=Mekylim, axes=F)}
+      plot(precip[[1]], xlim=Mekxlim, ylim=Mekylim, axes=F)
+      plot(worldborders, add=T)}
     else{
-      plot(precip[[cleansub(clickpoint$x)]], xlim=Mekxlim, ylim=Mekylim, axes=F)}
+      plot(precip[[cleansub(clickpoint$x)]], xlim=Mekxlim, ylim=Mekylim, axes=F)
+      plot(worldborders, add=T)}
   })
   
 })
